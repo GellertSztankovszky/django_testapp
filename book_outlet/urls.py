@@ -1,6 +1,4 @@
 from django.urls import path, include
-from . import views 
+from . import views
 
-urlpatterns = [
-    path("", views.index),
-]
+urlpatterns = [path("", views.index), path("<int:id>", views.book_detail)]
