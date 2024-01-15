@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Book
+from .models import Book, Author
 
 class BookAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("title", ) }
@@ -8,3 +8,4 @@ class BookAdmin(admin.ModelAdmin):
     list_display = ("title", "author")
 
 admin.site.register(Book, BookAdmin)
+admin.site.register(Author)
