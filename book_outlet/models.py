@@ -4,9 +4,14 @@ from django.urls import reverse
 from django.utils.text import slugify
 
 
+class Author(models.Model):
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+
+
 class Book(models.Model):
     title = models.CharField(max_length=100)
-    author = models.CharField(null=True, max_length=100)
+    author = models.ForeignKey(Author, on_delete=models.CASCADE, null=True)
     rating = models.IntegerField(
         validators=[MinValueValidator(1), MaxValueValidator(5)]
     )
